@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02B66DC7298888130064F1DD /* SocketMan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B66DC6298888130064F1DD /* SocketMan.swift */; };
 		02E3D9592971CC9B00BD9B55 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E3D9582971CC9B00BD9B55 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		02B66DC6298888130064F1DD /* SocketMan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketMan.swift; sourceTree = "<group>"; };
 		02E3D9552971CC9B00BD9B55 /* SocketPad */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SocketPad; sourceTree = BUILT_PRODUCTS_DIR; };
 		02E3D9582971CC9B00BD9B55 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -41,6 +43,7 @@
 		02E3D94C2971CC9B00BD9B55 = {
 			isa = PBXGroup;
 			children = (
+				02B66DC6298888130064F1DD /* SocketMan.swift */,
 				02E3D9572971CC9B00BD9B55 /* SocketPad */,
 				02E3D9562971CC9B00BD9B55 /* Products */,
 			);
@@ -121,6 +124,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02E3D9592971CC9B00BD9B55 /* main.swift in Sources */,
+				02B66DC7298888130064F1DD /* SocketMan.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

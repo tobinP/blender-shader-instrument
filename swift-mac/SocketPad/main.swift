@@ -9,3 +9,6 @@ import Foundation
 
 print("Hello, World!")
 
+let socketMan = SocketMan()
+
+Thread.sleep(until: Date.distantFuture)
