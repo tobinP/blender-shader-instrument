@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class SocketMan: NSObject, URLSessionWebSocketDelegate {
     private var webSocket : URLSessionWebSocketTask?
@@ -54,6 +55,14 @@ class SocketMan: NSObject, URLSessionWebSocketDelegate {
             })
         }
         DispatchQueue.global().asyncAfter(deadline: .now() + 3, execute: workItem)
+    }
+
+    func sendEvent(_ value: String) {
+        self.webSocket?.send(URLSessionWebSocketTask.Message.string(value), completionHandler: { error in
+            if let error = error {
+                print(error)
+            }
+        })
     }
 
     func send(){
