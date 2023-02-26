@@ -10,5 +10,7 @@ import Foundation
 print("Hello, World!")
 
 let socketMan = SocketMan()
+let padMan = PadMan(socketMan)
 
-Thread.sleep(until: Date.distantFuture)
+RunLoop.main.run()
+//Thread.sleep(until: Date.distantFuture)
