@@ -7,7 +7,6 @@ wss.on('connection', function connection(ws) {
 		let decoded = JSON.parse(data)
 		console.log('received decoded: %s', decoded);
 		wss.clients.forEach(function each(client) {
-			console.log('client: %s', client._sender);
 			if (client !== ws) {
 				client.send(data);
 			}
@@ -18,4 +17,27 @@ wss.on('connection', function connection(ws) {
 		xVal: 1 
 	}
 	ws.send(JSON.stringify(obj));
+
+	let value = 0
+	let shouldIncrease = true
+	let incrementValue = 0.1
+	const timer = setInterval(() => {
+		console.log('value: %s', value);
+		if (shouldIncrease) {
+			value += incrementValue
+			if (value > 6.27) {
+				shouldIncrease = false
+			}
+		} else {
+			value -= incrementValue
+			if (value < 0.1) {
+				shouldIncrease = true
+			}
+		}
+		let obj = {
+			name: "twist",
+			xVal: value
+		}
+		ws.send(JSON.stringify(obj));
+	}, 50)
 });
