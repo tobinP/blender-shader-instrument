@@ -18,26 +18,30 @@ wss.on('connection', function connection(ws) {
 	}
 	ws.send(JSON.stringify(obj));
 
-	let value = 0
-	let shouldIncrease = true
-	let incrementValue = 0.1
-	const timer = setInterval(() => {
-		console.log('value: %s', value);
-		if (shouldIncrease) {
-			value += incrementValue
-			if (value > 10.9) {
-				shouldIncrease = false
+	// autoRun("resize", 2, 10, 0.1)
+	autoRun("twist", -6.2, 6.2, 0.1)
+
+	function autoRun(event, min, max, incrementValue) {
+		let value = 0
+		let shouldIncrease = true
+		const timer = setInterval(() => {
+			console.log('value: %s', value);
+			if (shouldIncrease) {
+				value += incrementValue
+				if (value > max) {
+					shouldIncrease = false
+				}
+			} else {
+				value -= incrementValue
+				if (value < min) {
+					shouldIncrease = true
+				}
 			}
-		} else {
-			value -= incrementValue
-			if (value < 2.1) {
-				shouldIncrease = true
+			let obj = {
+				name: event,
+				xVal: value
 			}
-		}
-		let obj = {
-			name: "resize",
-			xVal: value
-		}
-		ws.send(JSON.stringify(obj));
-	}, 50)
+			ws.send(JSON.stringify(obj));
+		}, 50)
+	}
 });
