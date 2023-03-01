@@ -1,4 +1,3 @@
-
 import GameController
 
 class PadMan: ObservableObject{
@@ -18,13 +17,7 @@ class PadMan: ObservableObject{
         print("controller connected \(controller.productCategory)")
 
         for button in gamepad.allButtons {
-            button.pressedChangedHandler = {(button, value, pressed) in
-                print("value: ", value)
-
-                // add struct with boolean press and int value
-                // serialize to json
-                self.socketMan.sendEvent("value: \(value)")
-            }
+            button.pressedChangedHandler = onSingleValueChanged(button:value:pressed:)
         }
 
         gamepad.leftTrigger.valueChangedHandler = onSingleValueChanged(button:value:pressed:)
@@ -34,6 +27,9 @@ class PadMan: ObservableObject{
     }
 
     func onSingleValueChanged(button: GCControllerButtonInput, value: Float, pressed: Bool) {
+        // add struct with boolean press and int value
+        // serialize to json
+        self.socketMan.sendEvent("value: \(value)")
         print("value: ", value)
     }
 
