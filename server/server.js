@@ -25,17 +25,17 @@ wss.on('connection', function connection(ws) {
 		console.log('value: %s', value);
 		if (shouldIncrease) {
 			value += incrementValue
-			if (value > 6.27) {
+			if (value > 10.9) {
 				shouldIncrease = false
 			}
 		} else {
 			value -= incrementValue
-			if (value < 0.1) {
+			if (value < 2.1) {
 				shouldIncrease = true
 			}
 		}
 		let obj = {
-			name: "twist",
+			name: "resize",
 			xVal: value
 		}
 		ws.send(JSON.stringify(obj));
