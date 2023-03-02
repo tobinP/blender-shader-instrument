@@ -19,7 +19,7 @@ wss.on('connection', function connection(ws) {
 	ws.send(JSON.stringify(obj));
 
 	// autoRun("resize", 2, 10, 0.1)
-	autoRun("twist", -6.2, 6.2, 0.1)
+	// autoRun("twist", -6.2, 6.2, 0.1)
 
 	function autoRun(event, min, max, incrementValue) {
 		let value = 0
