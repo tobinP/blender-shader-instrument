@@ -50,6 +50,8 @@ class PadMan: ObservableObject{
         switch name {
         case "Right Trigger":
             return inputValue * 6.2
+        case "Left Thumbstick":
+            return inputValue * 10
         default:
             return inputValue
         }
@@ -57,6 +59,8 @@ class PadMan: ObservableObject{
 
     func getEventFor(name: String) -> String {
         switch name {
+        case "Left Thumbstick":
+            return "psycho-static"
         case "Left Trigger":
             return "metallic"
         case "Right Trigger":
