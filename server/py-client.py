@@ -3,8 +3,8 @@ import threading
 import websockets
 import json
 
-def outerTest():
-	async def test():
+def main():
+	async def createSocketClient():
 		shouldRun = True
 		async with websockets.connect('ws://localhost:8080') as websocket:
 			hello = {
@@ -21,10 +21,10 @@ def outerTest():
 					shouldRun = False
 	loop = asyncio.new_event_loop()
 	asyncio.set_event_loop(loop)
-	asyncio.get_event_loop().run_until_complete(test())
+	asyncio.get_event_loop().run_until_complete(createSocketClient())
 
 new_thread = threading.Thread()
-new_thread.run = outerTest
+new_thread.run = main
 new_thread.start()
 
 asyncio.get_event_loop().run_forever()
